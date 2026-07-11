@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glamour Beauty Admin | Dashboard</title>
+  <script>
+    if (localStorage.getItem('gb_admin_logged_in') !== 'true') {
+      window.location.replace('login.html');
+    }
+    const savedTheme = localStorage.getItem('gb-admin-theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+  </script>
+  <meta name="description" content="Admin Dashboard Application for Glamour Beauty Parlour.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Shared Variables & Core Styles -->
+  <link rel="stylesheet" href="style.css" />
+  <!-- Application Specific Styles -->
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body class="app-body">
+
+  <!-- =============================================
+       APPLICATION LAYOUT (SHELL)
+       ============================================= -->
+  <div class="app-container">
+
+    <!-- 1. SIDEBAR NAVIGATION -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="index.html" class="logo" aria-label="Return to Main Site">
+          <span class="logo-icon">✦</span>
+          <span class="logo-text">GB Admin</span>
+        </a>
+        <button class="sidebar-toggle" id="sidebar-close" aria-label="Close sidebar">✕</button>
+      </div>
+
+      <nav class="sidebar-nav">
+        <ul role="list">
+          <li>
+            <a href="#dashboard" class="nav-item active" data-view="dashboard">
+              <span class="nav-icon" aria-hidden="true">📊</span>
+              Dashboard
+            </a>
+          </li>
+          <li>
+            <a href="#bookings" class="nav-item" data-view="bookings">
+              <span class="nav-icon" aria-hidden="true">📅</span>
+              Bookings
+              <span class="nav-badge">3</span>
+            </a>
+          </li>
+          <li>
+            <a href="#clients" class="nav-item" data-view="clients">
+              <span class="nav-icon" aria-hidden="true">👥</span>
+              Clients
+            </a>
+          </li>
+          <li>
+            <a href="#operations" class="nav-item" data-view="operations">
+              <span class="nav-icon" aria-hidden="true">📋</span>
+              Operations
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="user-profile">
+          <div class="avatar" aria-hidden="true">A</div>
+          <div class="user-info">
+            <strong>Admin User</strong>
+            <span>Manager</span>
+          </div>
+        </div>
+        <button id="btn-logout" class="btn btn-outline" style="width: 100%; margin-top: var(--sp-4); font-size: var(--fs-xs); padding: var(--sp-2) var(--sp-4); justify-content: center;">Logout</button>
+      </div>
+    </aside>
+
+    <!-- 2. MAIN CONTENT AREA -->
+    <main class="main-content">
+
+      <!-- TOP HEADER -->
+      <header class="app-header">
+        <div class="header-left">
+          <button class="sidebar-toggle" id="sidebar-open" aria-label="Open sidebar">☰</button>
+          <h1 class="page-title" id="page-title">Dashboard</h1>
+        </div>
+        
+        <div class="header-right">
+          <div class="search-bar">
+            <span class="search-icon">🔍</span>
+            <input type="text" placeholder="Global search..." aria-label="Search" />
+          </div>
+          
+          <!-- Theme Toggle -->
+          <button class="icon-btn theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
+            <span class="toggle-icon-dark">🌙</span>
+            <span class="toggle-icon-light hidden">☀️</span>
+          </button>
+          
+          <!-- Notifications -->
+          <div class="notif-wrapper" id="notif-wrapper">
+            <button class="icon-btn" id="btn-notif" aria-label="Notifications" aria-expanded="false">
+              🔔<span class="indicator" id="notif-indicator"></span>
+            </button>
+            <!-- Dropdown Panel -->
+            <div class="notif-panel hidden" id="notif-panel" role="dialog" aria-label="Notifications">
+              <div class="notif-header">
+                <span class="notif-title">Notifications</span>
+                <button class="notif-clear-all" id="notif-clear-all">Mark all read</button>
+              </div>
+              <ul class="notif-list" id="notif-list" role="list"></ul>
+              <div class="notif-empty hidden" id="notif-empty">
+                <span style="font-size:2rem;">🎉</span>
+                <p>You're all caught up!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- VIEW CONTAINER -->
+      <div class="view-container">
+
+        <!-- =============================================
+             VIEW: DASHBOARD
+             ============================================= -->
+        <section class="app-view active-view" id="view-dashboard">
+          
+          <!-- Metrics Row -->
+          <div class="metrics-grid">
+            <div class="metric-card">
+              <div class="metric-header">
+                <span class="metric-title">Total Revenue</span>
+                <span class="metric-icon">💰</span>
+              </div>
+              <div class="metric-value">Rs 145,000</div>
+              <div class="metric-trend positive">↑ 12% from last month</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-header">
+                <span class="metric-title">Upcoming Bookings</span>
+                <span class="metric-icon">📅</span>
+              </div>
+              <div class="metric-value">24</div>
+              <div class="metric-trend positive">↑ 4 new today</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-header">
+                <span class="metric-title">New Clients</span>
+                <span class="metric-icon">👥</span>
+              </div>
+              <div class="metric-value">12</div>
+              <div class="metric-trend negative">↓ 2% from last week</div>
+            </div>
+          </div>
+
+          <!-- Charts & Activity Row -->
+          <div class="dashboard-split">
+            <!-- Chart Panel -->
+            <div class="panel">
+              <div class="panel-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--sp-6); flex-wrap: wrap; gap: var(--sp-2);">
+                <h2 class="panel-title" style="margin: 0;">Weekly Bookings Trend</h2>
+                <div class="chart-legend" style="display: flex; gap: var(--sp-4); font-size: var(--fs-xs); font-weight: 500;">
+                  <div class="legend-item" style="display: flex; align-items: center; gap: 8px; color: var(--clr-text-muted);">
+                    <span class="legend-color" style="width: 8px; height: 16px; border-radius: 2px; background: linear-gradient(to top, var(--clr-primary), var(--clr-primary-light)); display: inline-block;"></span>
+                    Weekday
+                  </div>
+                  <div class="legend-item" style="display: flex; align-items: center; gap: 8px; color: var(--clr-text-muted);">
+                    <span class="legend-color" style="width: 8px; height: 16px; border-radius: 2px; background: var(--clr-accent); display: inline-block;"></span>
+                    Saturday (Peak)
+                  </div>
+                </div>
+              </div>
+              <div class="chart-container">
+                <!-- CSS Based Bar Chart for demonstration -->
+                <div class="css-chart" aria-label="Bar chart showing weekly bookings">
+                  <div class="bar-col">
+                    <div class="bar" style="height: 60%;" title="Mon: 12"></div>
+                    <span class="bar-label">Mon</span>
+                  </div>
+                  <div class="bar-col">
+                    <div class="bar" style="height: 40%;" title="Tue: 8"></div>
+                    <span class="bar-label">Tue</span>
+                  </div>
+                  <div class="bar-col">
+                    <div class="bar" style="height: 80%;" title="Wed: 16"></div>
+                    <span class="bar-label">Wed</span>
+                  </div>
+                  <div class="bar-col">
+                    <div class="bar" style="height: 95%;" title="Thu: 19"></div>
+                    <span class="bar-label">Thu</span>
+                  </div>
+                  <div class="bar-col">
+                    <div class="bar" style="height: 100%;" title="Fri: 20"></div>
+                    <span class="bar-label">Fri</span>
+                  </div>
+                  <div class="bar-col">
+                    <div class="bar" style="height: 120%; background:var(--clr-accent);" title="Sat: 24 (Peak)"></div>
+                    <span class="bar-label">Sat</span>
+                  </div>
+                  <div class="bar-col">
+                    <div class="bar" style="height: 0%;" title="Sun: Closed"></div>
+                    <span class="bar-label">Sun</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Activity Panel -->
+            <div class="panel">
+              <h2 class="panel-title">Recent Activity</h2>
+              <ul class="activity-list" role="list">
+                <li class="activity-item">
+                  <div class="activity-dot success"></div>
+                  <div class="activity-text">
+                    <strong>Priya Kumari</strong> booked Bridal Makeup
+                    <span class="activity-time">10 mins ago</span>
+                  </div>
+                </li>
+                <li class="activity-item">
+                  <div class="activity-dot warning"></div>
+                  <div class="activity-text">
+                    <strong>Nadia Perera</strong> rescheduled Facial to Friday
+                    <span class="activity-time">2 hours ago</span>
+                  </div>
+                </li>
+                <li class="activity-item">
+                  <div class="activity-dot info"></div>
+                  <div class="activity-text">
+                    New review received from <strong>Chamari</strong>
+                    <span class="activity-time">4 hours ago</span>
+                  </div>
+                </li>
+                <li class="activity-item">
+                  <div class="activity-dot"></div>
+                  <div class="activity-text">
+                    System backup completed automatically
+                    <span class="activity-time">1 day ago</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- =============================================
+             VIEW: BOOKINGS (DATA TABLE)
+             ============================================= -->
+        <section class="app-view" id="view-bookings">
+          
+          <div class="table-toolbar">
+            <div class="toolbar-left">
+              <div class="search-bar">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="table-search" placeholder="Search by name or ID..." aria-controls="bookings-tbody" />
+              </div>
+              <select id="table-filter" class="filter-select" aria-label="Filter by status">
+                <option value="all">All Statuses</option>
+                <option value="upcoming">Upcoming</option>
+                <option value="inservice">In Service</option>
+                <option value="completed">Completed</option>
+              </select>
+            </div>
+            <div class="toolbar-right">
+              <button class="btn btn-primary" id="btn-add-booking">
+                + Add Booking
+              </button>
+            </div>
+          </div>
+
+          <div class="table-container" role="region" aria-label="Bookings Data Table" tabindex="0">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Client Name</th>
+                  <th>Service</th>
+                  <th>Date &amp; Time</th>
+                  <th>Status</th>
+                  <th class="text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="bookings-tbody">
+                <!-- JS Will Render Rows Here -->
+              </tbody>
+            </table>
+            
+            <!-- Empty state fallback -->
+            <div class="empty-state hidden" id="table-empty">
+              <div class="empty-icon">📭</div>
+              <h3>No bookings found</h3>
+              <p>Try adjusting your search or filters.</p>
+            </div>
+          </div>
+
+          <div class="table-pagination">
+            <span class="pagination-info" id="pagination-info">Showing 1 to 5 of 5 entries</span>
+            <div class="pagination-controls">
+              <button class="btn-page" disabled>&laquo; Prev</button>
+              <button class="btn-page active">1</button>
+              <button class="btn-page" disabled>Next &raquo;</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- =============================================
+             VIEW: CLIENTS (CRUD MODULE)
+             ============================================= -->
+        <section class="app-view" id="view-clients">
+          <div class="table-toolbar">
+            <div class="toolbar-left">
+              <div class="search-bar">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="client-search" placeholder="Search clients..." />
+              </div>
+            </div>
+            <div class="toolbar-right">
+              <button class="btn btn-primary" id="btn-add-client">
+                + Add Client
+              </button>
+            </div>
+          </div>
+
+          <div class="table-container">
+            <!-- Loading State -->
+            <div class="loader-container hidden" id="clients-loader">
+              <div class="spinner"></div>
+              <p>Fetching clients...</p>
+            </div>
+            
+            <table class="data-table" id="clients-table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                  <th>Total Visits</th>
+                  <th class="text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="clients-tbody">
+                <!-- JS Will Render Rows Here -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- =============================================
+             VIEW: OPERATIONS (KANBAN BOARD)
+             ============================================= -->
+        <section class="app-view" id="view-operations">
+          <div class="kanban-board">
+            
+            <!-- Column 1: Upcoming -->
+            <div class="kanban-column" data-status="upcoming">
+              <div class="kanban-header">
+                <h3>Upcoming</h3>
+                <span class="badge pending">3</span>
+              </div>
+              <div class="kanban-body dropzone" id="kb-upcoming">
+                <!-- Draggable Cards via JS -->
+              </div>
+            </div>
+
+            <!-- Column 2: In Service -->
+            <div class="kanban-column" data-status="inservice">
+              <div class="kanban-header">
+                <h3>In Service</h3>
+                <span class="badge confirmed">1</span>
+              </div>
+              <div class="kanban-body dropzone" id="kb-inservice">
+                <!-- Draggable Cards via JS -->
+              </div>
+            </div>
+
+            <!-- Column 3: Completed -->
+            <div class="kanban-column" data-status="completed">
+              <div class="kanban-header">
+                <h3>Completed</h3>
+                <span class="badge completed">2</span>
+              </div>
+              <div class="kanban-body dropzone" id="kb-completed">
+                <!-- Draggable Cards via JS -->
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+      </div><!-- /.view-container -->
+    </main>
+
+  </div><!-- /.app-container -->
+
+  <!-- =============================================
+       MODAL SYSTEM
+       ============================================= -->
+       
+  <!-- Backdrop -->
+  <div class="modal-backdrop hidden" id="modal-backdrop"></div>
+
+  <!-- Add New Booking Modal -->
+  <div class="modal hidden" id="modal-add" role="dialog" aria-labelledby="modal-add-title" aria-modal="true">
+    <div class="modal-header">
+      <h2 class="modal-title" id="modal-add-title">Add New Booking</h2>
+      <button class="modal-close" aria-label="Close modal">✕</button>
+    </div>
+    <div class="modal-body">
+      <form id="form-add-booking" class="app-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="mod-name">Client Name</label>
+            <input type="text" id="mod-name" required />
+          </div>
+          <div class="form-group">
+            <label for="mod-phone">Phone Number</label>
+            <input type="tel" id="mod-phone" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="mod-service">Service Required</label>
+          <select id="mod-service" required>
+            <option value="">Select a service...</option>
+            <option value="Hair Styling">Hair Styling</option>
+            <option value="Bridal Makeup">Bridal Makeup</option>
+            <option value="Nail Art">Nail Art</option>
+            <option value="Facial">Facial</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="mod-date">Date</label>
+            <input type="date" id="mod-date" required />
+          </div>
+          <div class="form-group">
+            <label for="mod-time">Time</label>
+            <input type="time" id="mod-time" required />
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-outline modal-close-btn" type="button">Cancel</button>
+      <button class="btn btn-primary" type="submit" form="form-add-booking" id="btn-save-booking">Save Booking</button>
+    </div>
+  </div>
+
+  <!-- Client Modal (Add/Edit) -->
+  <div class="modal hidden" id="modal-client" role="dialog" aria-labelledby="modal-client-title" aria-modal="true">
+    <div class="modal-header">
+      <h2 class="modal-title" id="modal-client-title">Client Details</h2>
+      <button class="modal-close" aria-label="Close modal">✕</button>
+    </div>
+    <div class="modal-body">
+      <form id="form-client" class="app-form">
+        <input type="hidden" id="client-id" />
+        <div class="form-group">
+          <label for="client-name">Full Name</label>
+          <input type="text" id="client-name" required />
+        </div>
+        <div class="form-group">
+          <label for="client-email">Email Address</label>
+          <input type="email" id="client-email" required />
+        </div>
+        <div class="form-group">
+          <label for="client-phone">Phone Number</label>
+          <input type="tel" id="client-phone" required />
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-outline modal-close-btn" type="button">Cancel</button>
+      <button class="btn btn-primary" type="submit" form="form-client" id="btn-save-client">Save Client</button>
+    </div>
+  </div>
+
+  <!-- VIEW BOOKING MODAL -->
+  <div class="modal hidden" id="modal-view-booking" role="dialog" aria-labelledby="modal-view-title" aria-modal="true">
+    <div class="modal-header">
+      <h2 class="modal-title" id="modal-view-title">Booking Details</h2>
+      <button class="modal-close" aria-label="Close modal">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="booking-detail-grid">
+        <div class="detail-row">
+          <span class="detail-label">Booking ID</span>
+          <span class="detail-value" id="view-id"></span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Client Name</span>
+          <span class="detail-value" id="view-name"></span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Service</span>
+          <span class="detail-value" id="view-service"></span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Date &amp; Time</span>
+          <span class="detail-value" id="view-datetime"></span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Status</span>
+          <span class="detail-value" id="view-status"></span>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-outline modal-close-btn" type="button">Close</button>
+      <button class="btn btn-warning" id="btn-view-edit">✏️ Edit</button>
+    </div>
+  </div>
+
+  <!-- EDIT BOOKING MODAL -->
+  <div class="modal hidden" id="modal-edit-booking" role="dialog" aria-labelledby="modal-edit-title" aria-modal="true">
+    <div class="modal-header">
+      <h2 class="modal-title" id="modal-edit-title">Edit Booking</h2>
+      <button class="modal-close" aria-label="Close modal">✕</button>
+    </div>
+    <div class="modal-body">
+      <form id="form-edit-booking" class="app-form">
+        <input type="hidden" id="edit-booking-id" />
+        <div class="form-row">
+          <div class="form-group">
+            <label for="edit-name">Client Name</label>
+            <input type="text" id="edit-name" required />
+          </div>
+          <div class="form-group">
+            <label for="edit-phone">Phone Number</label>
+            <input type="tel" id="edit-phone" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="edit-service">Service</label>
+          <select id="edit-service" required>
+            <option value="Hair Styling">Hair Styling</option>
+            <option value="Bridal Makeup">Bridal Makeup</option>
+            <option value="Nail Art">Nail Art</option>
+            <option value="Facial">Facial</option>
+            <option value="Herbal Treatment">Herbal Treatment</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="edit-status">Status</label>
+          <select id="edit-status" required>
+            <option value="upcoming">Upcoming</option>
+            <option value="inservice">In Service</option>
+            <option value="completed">Completed</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="edit-date">Date</label>
+            <input type="date" id="edit-date" />
+          </div>
+          <div class="form-group">
+            <label for="edit-time">Time</label>
+            <input type="time" id="edit-time" />
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-danger" id="btn-delete-booking" type="button">🗑️ Delete</button>
+      <div style="flex:1"></div>
+      <button class="btn btn-outline modal-close-btn" type="button">Cancel</button>
+      <button class="btn btn-primary" type="submit" form="form-edit-booking" id="btn-save-edit-booking">Save Changes</button>
+    </div>
+  </div>
+
+  <!-- Global Toast Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Application Logic -->
+  <script src="admin.js"></script>
+</body>
+</html>

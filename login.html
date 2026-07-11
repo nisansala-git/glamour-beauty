@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glamour Beauty Admin | Login</title>
+  <meta name="description" content="Secure Admin Login for Glamour Beauty Parlour.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Shared Variables & Core Styles -->
+  <link rel="stylesheet" href="style.css" />
+  
+  <style>
+    /* Custom Login Page Styles */
+    body.login-body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--clr-bg);
+      font-family: var(--font-body);
+      color: var(--clr-text);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Ambient Background Orbs */
+    .login-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+      z-index: 1;
+      opacity: 0.3;
+      animation: floatOrb 10s ease-in-out infinite alternate;
+    }
+    .orb-1 {
+      width: 300px;
+      height: 300px;
+      background: var(--clr-primary);
+      top: 10%;
+      left: 10%;
+    }
+    .orb-2 {
+      width: 400px;
+      height: 400px;
+      background: var(--clr-accent);
+      bottom: 10%;
+      right: 10%;
+      animation-delay: -5s;
+    }
+
+    @keyframes floatOrb {
+      0% { transform: translateY(0) scale(1); }
+      100% { transform: translateY(50px) scale(1.1); }
+    }
+
+    /* Login Card Container */
+    .login-card {
+      width: 100%;
+      max-width: 420px;
+      padding: var(--sp-8);
+      background: rgba(30, 20, 36, 0.45);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-lg);
+      backdrop-filter: blur(20px);
+      box-shadow: var(--shadow-card);
+      z-index: 2;
+      animation: cardEnter 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    @keyframes cardEnter {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .login-header {
+      text-align: center;
+      margin-bottom: var(--sp-8);
+    }
+
+    .login-logo {
+      font-family: var(--font-heading);
+      font-size: var(--fs-2xl);
+      color: var(--clr-white);
+      margin-bottom: var(--sp-2);
+      display: inline-flex;
+      align-items: center;
+      gap: var(--sp-2);
+    }
+
+    .login-logo-icon {
+      color: var(--clr-primary);
+      font-weight: 700;
+    }
+
+    .login-subtitle {
+      font-size: var(--fs-sm);
+      color: var(--clr-text-muted);
+    }
+
+    /* Form Fields */
+    .form-group {
+      margin-bottom: var(--sp-6);
+    }
+
+    .form-group label {
+      display: block;
+      font-size: var(--fs-xs);
+      font-weight: 600;
+      color: var(--clr-text-muted);
+      margin-bottom: var(--sp-2);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .form-input {
+      width: 100%;
+      background: rgba(13, 10, 15, 0.6);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-md);
+      padding: var(--sp-3) var(--sp-4);
+      color: var(--clr-text);
+      font-size: var(--fs-sm);
+      font-family: var(--font-body);
+      outline: none;
+      transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+    }
+
+    .form-input:focus {
+      border-color: var(--clr-primary-light);
+      box-shadow: 0 0 10px rgba(214, 36, 124, 0.25);
+    }
+
+    /* Button */
+    .btn-login {
+      width: 100%;
+      padding: var(--sp-3);
+      background: linear-gradient(135deg, var(--clr-primary), var(--clr-primary-light));
+      border: none;
+      border-radius: var(--radius-full);
+      color: var(--clr-white);
+      font-size: var(--fs-sm);
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+      margin-top: var(--sp-4);
+    }
+
+    .btn-login:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .btn-login:active {
+      transform: translateY(0);
+    }
+
+    /* Error Message Alert */
+    .error-alert {
+      background: rgba(214, 36, 124, 0.1);
+      border: 1px solid var(--clr-primary);
+      color: var(--clr-text);
+      padding: var(--sp-3) var(--sp-4);
+      border-radius: var(--radius-sm);
+      font-size: var(--fs-xs);
+      margin-bottom: var(--sp-6);
+      display: flex;
+      align-items: center;
+      gap: var(--sp-2);
+      animation: shakeAlert 0.4s ease;
+    }
+
+    @keyframes shakeAlert {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-5px); }
+      75% { transform: translateX(5px); }
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: var(--sp-6);
+      font-size: var(--fs-xs);
+      color: var(--clr-text-muted);
+      text-decoration: none;
+      transition: color var(--transition-fast);
+    }
+
+    .back-link:hover {
+      color: var(--clr-primary-light);
+    }
+
+    .btn-demo {
+      width: 100%;
+      padding: var(--sp-2) var(--sp-4);
+      background: transparent;
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-full);
+      color: var(--clr-text-muted);
+      font-size: var(--fs-xs);
+      font-weight: 500;
+      cursor: pointer;
+      margin-top: var(--sp-3);
+      transition: all var(--transition-fast);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-body);
+    }
+
+    .btn-demo:hover {
+      border-color: var(--clr-primary-light);
+      color: var(--clr-text);
+      background: rgba(214, 36, 124, 0.05);
+      box-shadow: 0 0 10px rgba(214, 36, 124, 0.1);
+    }
+  </style>
+</head>
+<body class="login-body">
+
+  <!-- Background Ambient Orbs -->
+  <div class="login-orb orb-1"></div>
+  <div class="login-orb orb-2"></div>
+
+  <!-- Login Card -->
+  <div class="login-card">
+    <div class="login-header">
+      <div class="login-logo">
+        <span class="login-logo-icon">✦</span>
+        <span>Glamour Admin</span>
+      </div>
+      <p class="login-subtitle">Enter your details to manage the salon</p>
+    </div>
+
+    <!-- Error Message -->
+    <div class="error-alert hidden" id="error-msg" role="alert">
+      <span>⚠️</span>
+      <span id="error-text">Invalid credentials.</span>
+    </div>
+
+    <!-- Form -->
+    <form id="login-form">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" class="form-input" required autocomplete="username" placeholder="Enter 'admin'" />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" class="form-input" required autocomplete="current-password" placeholder="Enter 'admin'" />
+      </div>
+
+      <button type="submit" class="btn-login">Sign In</button>
+      <button type="button" id="btn-demo-fill" class="btn-demo">Autofill Demo Credentials</button>
+    </form>
+
+    <a href="index.html" class="back-link">← Back to Glamour Beauty</a>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // If already logged in, skip login page
+      if (localStorage.getItem('gb_admin_logged_in') === 'true') {
+        window.location.href = 'admin.html';
+        return;
+      }
+
+      const form = document.getElementById('login-form');
+      const errorMsg = document.getElementById('error-msg');
+      const errorText = document.getElementById('error-text');
+      const demoBtn = document.getElementById('btn-demo-fill');
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const username = document.getElementById('username').value.trim();
+        const password = document.getElementById('password').value;
+
+        // Perform authentication
+        if (username === 'admin' && password === 'admin') {
+          localStorage.setItem('gb_admin_logged_in', 'true');
+          window.location.href = 'admin.html';
+        } else {
+          // Show error with animation restart
+          errorMsg.classList.add('hidden');
+          void errorMsg.offsetWidth; // Trigger reflow for animation restart
+          errorText.textContent = 'Invalid credentials. Enter "admin" for both fields.';
+          errorMsg.classList.remove('hidden');
+        }
+      });
+
+      // Autofill listener
+      demoBtn.addEventListener('click', () => {
+        document.getElementById('username').value = 'admin';
+        document.getElementById('password').value = 'admin';
+        // Auto submit
+        form.dispatchEvent(new Event('submit'));
+      });
+    });
+  </script>
+</body>
+</html>

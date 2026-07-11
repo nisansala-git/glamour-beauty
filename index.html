@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- =============================================
+       META & SEO
+       ============================================= -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Glamour Beauty Parlour — Premium hair, nail, facial, and bridal makeup services in Sri Lanka. Book your appointment today." />
+  <meta name="keywords" content="beauty parlour, hair styling, nail art, facial, bridal makeup, Sri Lanka" />
+  <meta name="author" content="Glamour Beauty Parlour" />
+
+  <!-- Open Graph (for social sharing) -->
+  <meta property="og:title" content="Glamour Beauty Parlour" />
+  <meta property="og:description" content="Your beauty is our passion. Premium beauty services in Sri Lanka." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://glamourbeauty.lk" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Glamour Beauty Parlour" />
+  <meta name="twitter:description" content="Your beauty is our passion." />
+
+  <title>Glamour Beauty Parlour | Premium Beauty Services in Sri Lanka</title>
+
+  <!-- =============================================
+       GOOGLE FONTS
+       Playfair Display = elegant headings
+       Inter = clean, modern body text
+       ============================================= -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- =============================================
+       NAVIGATION BAR
+       - Sticky glassmorphism navbar
+       - Logo + nav links
+       - Hamburger menu for mobile
+       ============================================= -->
+  <header>
+    <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+      <!-- Logo -->
+      <a href="#home" class="logo" aria-label="Glamour Beauty Parlour Home">
+        <span class="logo-icon">✦</span>
+        <span class="logo-text">Glamour Beauty</span>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="#home" class="nav-link active" id="nav-home">Home</a></li>
+        <li><a href="#services" class="nav-link" id="nav-services">Services</a></li>
+        <li><a href="#gallery" class="nav-link" id="nav-gallery">Gallery</a></li>
+        <li><a href="#testimonials" class="nav-link" id="nav-testimonials">Reviews</a></li>
+        <li><a href="#prices" class="nav-link" id="nav-prices">Prices</a></li>
+        <li><a href="#contact" class="nav-link" id="nav-contact">Contact</a></li>
+        <li>
+          <a href="#contact" class="nav-cta" id="nav-book" aria-label="Book an appointment">
+            Book Now
+          </a>
+        </li>
+      </ul>
+
+      <!-- Hamburger Button (mobile) -->
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false"
+        aria-controls="nav-links">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- =============================================
+       HERO SECTION
+       - Full-screen with animated gradient background
+       - Animated headline + subtitle
+       - CTA button
+       ============================================= -->
+  <section id="home" class="hero" aria-label="Welcome hero section">
+    <!-- Decorative floating orbs -->
+    <div class="hero-orb orb-1" aria-hidden="true"></div>
+    <div class="hero-orb orb-2" aria-hidden="true"></div>
+    <div class="hero-orb orb-3" aria-hidden="true"></div>
+
+    <div class="hero-content">
+      <!-- Badge -->
+      <div class="hero-badge reveal" aria-label="Premium Beauty Studio">
+        <span>✦</span> Premium Beauty Studio
+      </div>
+
+      <!-- Main headline (single H1 per page — SEO rule) -->
+      <h1 class="hero-title reveal">
+        Your Beauty,<br />
+        <span class="hero-title-accent">Our Passion</span>
+      </h1>
+
+      <!-- Tagline -->
+      <p class="hero-tagline reveal">
+        Experience luxury beauty treatments crafted just for you.<br />
+        Hair, skin, nails & bridal — all under one roof.
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="hero-btns reveal">
+        <button class="btn-primary" id="btn-book-hero" onclick="showBookingPopup()">
+          Book Appointment
+        </button>
+        <a href="#services" class="btn-secondary" id="btn-explore">
+          Explore Services
+        </a>
+      </div>
+
+      <!-- Stats row -->
+      <div class="hero-stats reveal">
+        <div class="stat">
+          <span class="stat-num">500+</span>
+          <span class="stat-label">Happy Clients</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat">
+          <span class="stat-num">10+</span>
+          <span class="stat-label">Years Experience</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat">
+          <span class="stat-num">5★</span>
+          <span class="stat-label">Rated Service</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <a href="#services" class="scroll-indicator" aria-label="Scroll down to services">
+      <div class="scroll-dot"></div>
+    </a>
+  </section>
+
+  <!-- =============================================
+       SERVICES SECTION
+       - Animated cards with hover glow effect
+       - Unordered list for accessibility
+       ============================================= -->
+  <section id="services" class="section services-section" aria-labelledby="services-heading">
+    <div class="container">
+      <!-- Section header -->
+      <div class="section-header reveal">
+        <span class="section-label">What We Offer</span>
+        <h2 id="services-heading">Our Services</h2>
+        <p class="section-sub">Indulge in our curated range of premium beauty treatments</p>
+      </div>
+
+      <!-- Service cards (Unordered List) -->
+      <ul class="services-grid" role="list">
+
+        <li class="service-card reveal" id="service-hair">
+          <div class="card-icon" aria-hidden="true">💇</div>
+          <h3>Hair Cutting & Styling</h3>
+          <p>From classic cuts to bold transformations — our expert stylists bring your vision to life.</p>
+          <span class="card-tag">Most Popular</span>
+        </li>
+
+        <li class="service-card reveal" id="service-nail">
+          <div class="card-icon" aria-hidden="true">💅</div>
+          <h3>Nail Art & Manicure</h3>
+          <p>Precision nail art and luxurious manicures that keep your hands looking flawless.</p>
+        </li>
+
+        <li class="service-card reveal" id="service-facial">
+          <div class="card-icon" aria-hidden="true">🧖</div>
+          <h3>Facial & Skin Care</h3>
+          <p>Deep-cleansing facials and skin treatments tailored to your unique skin type.</p>
+        </li>
+
+        <li class="service-card reveal" id="service-bridal">
+          <div class="card-icon" aria-hidden="true">💍</div>
+          <h3>Bridal Makeup</h3>
+          <p>Look breathtaking on your special day with our signature bridal makeup packages.</p>
+          <span class="card-tag card-tag-gold">Premium</span>
+        </li>
+
+        <li class="service-card reveal" id="service-herbal">
+          <div class="card-icon" aria-hidden="true">🌿</div>
+          <h3>Herbal Treatments</h3>
+          <p>Natural, plant-based therapies that nourish and rejuvenate from the inside out.</p>
+        </li>
+
+        <li class="service-card reveal" id="service-spa">
+          <div class="card-icon" aria-hidden="true">🛁</div>
+          <h3>Relaxation Spa</h3>
+          <p>Unwind with our soothing spa sessions designed to melt away stress and tension.</p>
+        </li>
+
+      </ul>
+    </div>
+  </section>
+
+  <!-- =============================================
+       GALLERY SECTION
+       - 5 images in a responsive masonry-style grid
+       - Lightbox overlay on click
+       ============================================= -->
+  <section id="gallery" class="section gallery-section" aria-labelledby="gallery-heading">
+    <div class="container">
+      <!-- Section header -->
+      <div class="section-header reveal">
+        <span class="section-label">Our Work</span>
+        <h2 id="gallery-heading">Gallery</h2>
+        <p class="section-sub">A glimpse of the transformations we create every day</p>
+      </div>
+
+      <!-- Gallery Grid — 5 images (each clickable for lightbox) -->
+      <div class="gallery-grid" role="list">
+
+        <figure class="gallery-item gallery-item--large reveal" role="listitem">
+          <img src="img1.jpg" alt="Elegant hair styling transformation at Glamour Beauty Parlour"
+            id="gal-img-1" loading="lazy" onclick="openLightbox(0)" />
+          <figcaption class="gallery-overlay">
+            <span>Hair Styling</span>
+          </figcaption>
+        </figure>
+
+        <figure class="gallery-item reveal" role="listitem">
+          <img src="img2.jpg" alt="Creative nail art and manicure at Glamour Beauty Parlour"
+            id="gal-img-2" loading="lazy" onclick="openLightbox(1)" />
+          <figcaption class="gallery-overlay">
+            <span>Nail Art</span>
+          </figcaption>
+        </figure>
+
+        <figure class="gallery-item reveal" role="listitem">
+          <img src="img3.jpg" alt="Rejuvenating facial treatment at Glamour Beauty Parlour"
+            id="gal-img-3" loading="lazy" onclick="openLightbox(2)" />
+          <figcaption class="gallery-overlay">
+            <span>Facial Care</span>
+          </figcaption>
+        </figure>
+
+        <figure class="gallery-item reveal" role="listitem">
+          <img src="img4.jpg" alt="Stunning bridal makeup at Glamour Beauty Parlour"
+            id="gal-img-4" loading="lazy" onclick="openLightbox(3)" />
+          <figcaption class="gallery-overlay">
+            <span>Bridal Makeup</span>
+          </figcaption>
+        </figure>
+
+        <figure class="gallery-item reveal" role="listitem">
+          <img src="img5.jpg" alt="Natural herbal beauty treatment at Glamour Beauty Parlour"
+            id="gal-img-5" loading="lazy" onclick="openLightbox(4)" />
+          <figcaption class="gallery-overlay">
+            <span>Herbal Treatment</span>
+          </figcaption>
+        </figure>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       TESTIMONIALS SECTION — COMPONENT 1
+       - Auto-playing carousel with 5 slides
+       - Drag / touch-swipe support
+       - Dot indicator navigation
+       - Pause on hover
+       ============================================= -->
+  <section id="testimonials" class="section testimonials-section" aria-labelledby="testimonials-heading">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Client Love</span>
+        <h2 id="testimonials-heading">What Our Clients Say</h2>
+        <p class="section-sub">Real stories from real people who trust Glamour Beauty</p>
+      </div>
+
+      <!-- Carousel wrapper -->
+      <div class="carousel" id="testimonials-carousel" aria-label="Client testimonials carousel" role="region">
+
+        <!-- Prev / Next arrows -->
+        <button class="carousel-btn carousel-prev" id="carousel-prev" aria-label="Previous testimonial">&#8249;</button>
+        <button class="carousel-btn carousel-next" id="carousel-next" aria-label="Next testimonial">&#8250;</button>
+
+        <!-- Slides track -->
+        <div class="carousel-track" id="carousel-track" aria-live="polite">
+
+          <!-- Slide 1 -->
+          <article class="carousel-slide" role="group" aria-roledescription="slide" aria-label="Testimonial 1 of 5">
+            <div class="testimonial-card">
+              <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+              <blockquote class="testimonial-text">
+                &ldquo;Absolutely stunning bridal makeup! I felt like a queen on my wedding day.
+                The team was incredibly professional and caring throughout the entire session.&rdquo;
+              </blockquote>
+              <div class="testimonial-author">
+                <div class="author-avatar" aria-hidden="true">P</div>
+                <div>
+                  <strong>Priya Kumari</strong>
+                  <span>Bridal Makeup Client</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Slide 2 -->
+          <article class="carousel-slide" role="group" aria-roledescription="slide" aria-label="Testimonial 2 of 5">
+            <div class="testimonial-card">
+              <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+              <blockquote class="testimonial-text">
+                &ldquo;Best hair cut I&rsquo;ve ever had! They truly listened to what I wanted and
+                the result was beyond my expectations. My confidence has never been higher!&rdquo;
+              </blockquote>
+              <div class="testimonial-author">
+                <div class="author-avatar" aria-hidden="true">S</div>
+                <div>
+                  <strong>Sarah Fernando</strong>
+                  <span>Hair Styling Client</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Slide 3 -->
+          <article class="carousel-slide" role="group" aria-roledescription="slide" aria-label="Testimonial 3 of 5">
+            <div class="testimonial-card">
+              <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+              <blockquote class="testimonial-text">
+                &ldquo;The facial treatment completely transformed my skin. After years of struggling
+                with dullness, my skin is now glowing and radiant. Highly recommend Glamour Beauty!&rdquo;
+              </blockquote>
+              <div class="testimonial-author">
+                <div class="author-avatar" aria-hidden="true">N</div>
+                <div>
+                  <strong>Nadia Perera</strong>
+                  <span>Facial &amp; Skin Care Client</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Slide 4 -->
+          <article class="carousel-slide" role="group" aria-roledescription="slide" aria-label="Testimonial 4 of 5">
+            <div class="testimonial-card">
+              <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+              <blockquote class="testimonial-text">
+                &ldquo;My nail art turned out absolutely gorgeous — so intricate and long-lasting.
+                Everyone at the office kept asking where I got them done. I&rsquo;ll never go anywhere else!&rdquo;
+              </blockquote>
+              <div class="testimonial-author">
+                <div class="author-avatar" aria-hidden="true">C</div>
+                <div>
+                  <strong>Chamari Wickrama</strong>
+                  <span>Nail Art Client</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Slide 5 -->
+          <article class="carousel-slide" role="group" aria-roledescription="slide" aria-label="Testimonial 5 of 5">
+            <div class="testimonial-card">
+              <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+              <blockquote class="testimonial-text">
+                &ldquo;The herbal treatment was incredibly relaxing and my skin felt rejuvenated.
+                The staff is warm, welcoming, and genuinely passionate about what they do.&rdquo;
+              </blockquote>
+              <div class="testimonial-author">
+                <div class="author-avatar" aria-hidden="true">M</div>
+                <div>
+                  <strong>Malini Silva</strong>
+                  <span>Herbal Treatment Client</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div><!-- /.carousel-track -->
+
+        <!-- Dot navigation -->
+        <div class="carousel-dots" id="carousel-dots" role="tablist" aria-label="Testimonial navigation dots">
+          <button class="dot active" id="dot-0" role="tab" aria-selected="true" aria-label="Go to slide 1"></button>
+          <button class="dot" id="dot-1" role="tab" aria-selected="false" aria-label="Go to slide 2"></button>
+          <button class="dot" id="dot-2" role="tab" aria-selected="false" aria-label="Go to slide 3"></button>
+          <button class="dot" id="dot-3" role="tab" aria-selected="false" aria-label="Go to slide 4"></button>
+          <button class="dot" id="dot-4" role="tab" aria-selected="false" aria-label="Go to slide 5"></button>
+        </div>
+
+      </div><!-- /.carousel -->
+    </div>
+  </section>
+
+  <!-- =============================================
+       BEFORE / AFTER SECTION — COMPONENT 2
+       - Draggable vertical handle reveals two images
+       - Supports mouse drag and touch swipe
+       ============================================= -->
+  <section id="results" class="section results-section" aria-labelledby="results-heading">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Transformation</span>
+        <h2 id="results-heading">Before &amp; After</h2>
+        <p class="section-sub">Drag the handle to reveal the stunning transformation</p>
+      </div>
+
+      <div class="ba-wrapper reveal">
+        <!-- Before/After interactive slider -->
+        <div class="ba-slider" id="ba-slider" role="img" aria-label="Before and after hair styling comparison">
+          <!-- AFTER image (full width, behind) -->
+          <div class="ba-after">
+            <img src="img1.jpg" alt="After — beautiful hair styling result" />
+            <span class="ba-label ba-label-after">After ✨</span>
+          </div>
+          <!-- BEFORE image (clipped by handle position) -->
+          <div class="ba-before" id="ba-before">
+            <img src="img3.jpg" alt="Before — natural look before treatment" />
+            <span class="ba-label ba-label-before">Before</span>
+          </div>
+          <!-- Draggable handle -->
+          <div class="ba-handle" id="ba-handle" role="slider"
+            aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"
+            aria-label="Before/after comparison slider — drag left or right">
+            <div class="ba-handle-icon">&#8644;</div>
+          </div>
+        </div>
+
+        <p class="ba-hint">← Drag the handle left or right to compare →</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       LIGHTBOX OVERLAY
+       - Full-screen image viewer
+       - Close button + keyboard (Escape) support
+       ============================================= -->
+       - Full-screen image viewer
+       - Close button + keyboard (Escape) support
+       ============================================= -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <button class="lightbox-close" id="lightbox-close" onclick="closeLightbox()" aria-label="Close image viewer">
+      ✕
+    </button>
+    <button class="lightbox-prev" id="lightbox-prev" onclick="changeLightbox(-1)" aria-label="Previous image">
+      ‹
+    </button>
+    <img class="lightbox-img" id="lightbox-img" src="" alt="Enlarged gallery image" />
+    <button class="lightbox-next" id="lightbox-next" onclick="changeLightbox(1)" aria-label="Next image">
+      ›
+    </button>
+    <div class="lightbox-counter" id="lightbox-counter" aria-live="polite"></div>
+  </div>
+
+  <!-- =============================================
+       PRICING SECTION
+       - Styled card-based pricing table
+       - Accessible table with proper headers
+       ============================================= -->
+  <section id="prices" class="section pricing-section" aria-labelledby="prices-heading">
+    <div class="container">
+      <!-- Section header -->
+      <div class="section-header reveal">
+        <span class="section-label">Transparent Pricing</span>
+        <h2 id="prices-heading">Price List</h2>
+        <p class="section-sub">Fair prices for world-class beauty treatments</p>
+      </div>
+
+      <!-- Pricing table wrapper for horizontal scroll on mobile -->
+      <div class="table-wrapper reveal">
+        <table class="price-table" role="table" aria-label="Service pricing table">
+          <thead>
+            <tr>
+              <th scope="col">Service</th>
+              <th scope="col">Duration</th>
+              <th scope="col">Price (LKR)</th>
+              <th scope="col">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="Service">💇 Hair Cutting</td>
+              <td data-label="Duration">30 mins</td>
+              <td data-label="Price">LKR 500</td>
+              <td data-label="Status"><span class="badge badge-avail">Available</span></td>
+            </tr>
+            <tr>
+              <td data-label="Service">💅 Nail Art</td>
+              <td data-label="Duration">45 mins</td>
+              <td data-label="Price">LKR 800</td>
+              <td data-label="Status"><span class="badge badge-avail">Available</span></td>
+            </tr>
+            <tr>
+              <td data-label="Service">🧖 Facial</td>
+              <td data-label="Duration">60 mins</td>
+              <td data-label="Price">LKR 1,500</td>
+              <td data-label="Status"><span class="badge badge-avail">Available</span></td>
+            </tr>
+            <tr class="row-highlight">
+              <td data-label="Service">💍 Bridal Makeup</td>
+              <td data-label="Duration">2 hours</td>
+              <td data-label="Price">LKR 8,000</td>
+              <td data-label="Status"><span class="badge badge-premium">Premium</span></td>
+            </tr>
+            <tr>
+              <td data-label="Service">🌿 Herbal Treatment</td>
+              <td data-label="Duration">90 mins</td>
+              <td data-label="Price">LKR 2,000</td>
+              <td data-label="Status"><span class="badge badge-avail">Available</span></td>
+            </tr>
+            <tr>
+              <td data-label="Service">🛁 Relaxation Spa</td>
+              <td data-label="Duration">60 mins</td>
+              <td data-label="Price">LKR 1,800</td>
+              <td data-label="Status"><span class="badge badge-avail">Available</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Pricing note -->
+      <p class="pricing-note reveal">
+        * All prices are inclusive of applicable taxes. Package deals and group discounts available.
+        <a href="#contact" class="pricing-note-link">Contact us</a> for custom quotes.
+      </p>
+    </div>
+  </section>
+
+  <!-- =============================================
+       FAQ SECTION — COMPONENT 3
+       - Accordion: click to expand/collapse panels
+       - Only one panel open at a time
+       - Smooth max-height CSS transition
+       ============================================= -->
+  <section id="faq" class="section faq-section" aria-labelledby="faq-heading">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Got Questions?</span>
+        <h2 id="faq-heading">Frequently Asked Questions</h2>
+        <p class="section-sub">Everything you need to know before your visit</p>
+      </div>
+
+      <!-- Accordion list -->
+      <div class="accordion" id="faq-accordion" role="list">
+
+        <!-- FAQ Item 1 -->
+        <div class="accordion-item reveal" role="listitem">
+          <button class="accordion-trigger" id="faq-btn-1" aria-expanded="false" aria-controls="faq-panel-1">
+            <span>How do I book an appointment?</span>
+            <span class="accordion-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="accordion-panel" id="faq-panel-1" role="region" aria-labelledby="faq-btn-1">
+            <div class="accordion-body">
+              You can book an appointment by filling in the contact form on this page, calling us at
+              +94 77 123 4567, or messaging us on WhatsApp. We typically confirm bookings within
+              24 hours and recommend booking at least 2 days in advance for regular services and
+              1 week for bridal packages.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ Item 2 -->
+        <div class="accordion-item reveal" role="listitem">
+          <button class="accordion-trigger" id="faq-btn-2" aria-expanded="false" aria-controls="faq-panel-2">
+            <span>What is included in the Bridal Makeup package?</span>
+            <span class="accordion-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="accordion-panel" id="faq-panel-2" role="region" aria-labelledby="faq-btn-2">
+            <div class="accordion-body">
+              Our premium bridal package includes a full bridal makeup session (2 hours), a trial makeup
+              session before the wedding day, hair styling, nail art, and a pre-wedding facial. We use
+              only premium, long-lasting products to ensure you look flawless all day long.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ Item 3 -->
+        <div class="accordion-item reveal" role="listitem">
+          <button class="accordion-trigger" id="faq-btn-3" aria-expanded="false" aria-controls="faq-panel-3">
+            <span>Do you offer group or package discounts?</span>
+            <span class="accordion-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="accordion-panel" id="faq-panel-3" role="region" aria-labelledby="faq-btn-3">
+            <div class="accordion-body">
+              Yes! We offer special discounts for groups of 3 or more, as well as bundled service
+              packages. For example, our &ldquo;Glow Package&rdquo; (Facial + Nail Art + Hair Styling)
+              saves you up to 20% compared to individual pricing. Contact us for a custom quote.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ Item 4 -->
+        <div class="accordion-item reveal" role="listitem">
+          <button class="accordion-trigger" id="faq-btn-4" aria-expanded="false" aria-controls="faq-panel-4">
+            <span>What products do you use for treatments?</span>
+            <span class="accordion-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="accordion-panel" id="faq-panel-4" role="region" aria-labelledby="faq-btn-4">
+            <div class="accordion-body">
+              We exclusively use dermatologist-approved, cruelty-free products from premium brands.
+              For herbal treatments, we source organic ingredients locally. All our facial products
+              are hypoallergenic and suitable for all skin types. If you have specific allergies,
+              please inform us when booking so we can prepare accordingly.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ Item 5 -->
+        <div class="accordion-item reveal" role="listitem">
+          <button class="accordion-trigger" id="faq-btn-5" aria-expanded="false" aria-controls="faq-panel-5">
+            <span>What are your working hours and location?</span>
+            <span class="accordion-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="accordion-panel" id="faq-panel-5" role="region" aria-labelledby="faq-btn-5">
+            <div class="accordion-body">
+              We are open Monday to Saturday, 9:00 AM to 7:00 PM. We are closed on Sundays and
+              public holidays. You can find us at 123, Colombo Road, Sri Lanka. Free parking is
+              available on-site. We also offer home visit services for select treatments — contact
+              us for availability and pricing.
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /.accordion -->
+    </div>
+  </section>
+
+  <!-- =============================================
+       CONTACT SECTION
+       - Contact form with validation
+       - Address & phone info
+       - 5 social / contact hyperlinks
+       ============================================= -->
+  <section id="contact" class="section contact-section" aria-labelledby="contact-heading">
+    <div class="container">
+      <!-- Section header -->
+      <div class="section-header reveal">
+        <span class="section-label">Get In Touch</span>
+        <h2 id="contact-heading">Contact Us</h2>
+        <p class="section-sub">We'd love to hear from you. Book your visit today!</p>
+      </div>
+
+      <div class="contact-grid">
+
+        <!-- Left: Info + Links -->
+        <div class="contact-info reveal">
+          <div class="info-item">
+            <span class="info-icon" aria-hidden="true">📍</span>
+            <div>
+              <strong>Location</strong>
+              <p>123, Colombo Road, Sri Lanka</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <span class="info-icon" aria-hidden="true">📞</span>
+            <div>
+              <strong>Phone</strong>
+              <p><a href="tel:+94771234567">+94 77 123 4567</a></p>
+            </div>
+          </div>
+          <div class="info-item">
+            <span class="info-icon" aria-hidden="true">🕐</span>
+            <div>
+              <strong>Working Hours</strong>
+              <p>Mon – Sat: 9:00 AM – 7:00 PM</p>
+            </div>
+          </div>
+
+          <!-- 5 Contact Hyperlinks -->
+          <nav class="social-links" aria-label="Social media and contact links">
+            <a href="mailto:glamour@gmail.com" class="social-link" id="link-email" aria-label="Send us an email">
+              <span aria-hidden="true">📧</span> Email Us
+            </a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-link"
+              id="link-fb" aria-label="Visit our Facebook page">
+              <span aria-hidden="true">📘</span> Facebook
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-link"
+              id="link-ig" aria-label="Visit our Instagram">
+              <span aria-hidden="true">📸</span> Instagram
+            </a>
+            <a href="https://wa.me/94771234567" target="_blank" rel="noopener noreferrer" class="social-link"
+              id="link-wa" aria-label="Chat with us on WhatsApp">
+              <span aria-hidden="true">💬</span> WhatsApp
+            </a>
+            <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="social-link"
+              id="link-map" aria-label="Find us on Google Maps">
+              <span aria-hidden="true">🗺️</span> Find Us
+            </a>
+          </nav>
+        </div>
+
+        <!-- Right: Contact Form -->
+        <form class="contact-form reveal" id="contact-form" novalidate aria-label="Book appointment form">
+          <h3 class="form-title">Book an Appointment</h3>
+
+          <div class="form-group">
+            <label for="name">Full Name <span class="required" aria-hidden="true">*</span></label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name"
+              autocomplete="name" required aria-required="true" />
+            <span class="field-error" id="name-error" role="alert" aria-live="polite"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address <span class="required" aria-hidden="true">*</span></label>
+            <input type="email" id="email" name="email" placeholder="your@email.com"
+              autocomplete="email" required aria-required="true" />
+            <span class="field-error" id="email-error" role="alert" aria-live="polite"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="+94 77 000 0000"
+              autocomplete="tel" />
+          </div>
+
+          <div class="form-group">
+            <label for="service">Service <span class="required" aria-hidden="true">*</span></label>
+            <select id="service" name="service" required aria-required="true">
+              <option value="" disabled selected>Select a service</option>
+              <option value="hair">Hair Cutting & Styling</option>
+              <option value="nail">Nail Art & Manicure</option>
+              <option value="facial">Facial & Skin Care</option>
+              <option value="bridal">Bridal Makeup</option>
+              <option value="herbal">Herbal Treatment</option>
+              <option value="spa">Relaxation Spa</option>
+            </select>
+            <span class="field-error" id="service-error" role="alert" aria-live="polite"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message (optional)</label>
+            <textarea id="message" name="message" placeholder="Any special requests or questions..."
+              rows="4"></textarea>
+          </div>
+
+          <button type="submit" class="btn-submit" id="btn-submit">
+            <span id="btn-submit-text">Send Booking Request</span>
+            <span id="btn-submit-spinner" class="spinner hidden" aria-hidden="true"></span>
+          </button>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       BOOKING POPUP
+       - Triggered by "Book Appointment" hero CTA
+       - Smooth fade-in overlay
+       ============================================= -->
+  <div class="popup-overlay hidden" id="popup-overlay" role="dialog" aria-modal="true"
+    aria-labelledby="popup-title" aria-describedby="popup-desc">
+    <div class="popup-card">
+      <div class="popup-icon" aria-hidden="true">✦</div>
+      <h3 id="popup-title">Appointment Requested!</h3>
+      <p id="popup-desc">Thank you! Our team will contact you within 24 hours to confirm your booking.</p>
+      <button class="btn-primary" id="btn-popup-close" onclick="closeBookingPopup()">
+        Close
+      </button>
+    </div>
+  </div>
+
+  <!-- =============================================
+       FLOATING ACTION BUTTON (FAB) — COMPONENT 7
+       - Speed-dial with 3 quick actions
+       - Toggles open/close on click
+       ============================================= -->
+  <div class="fab-container" id="fab-container">
+    <!-- Speed-dial actions (revealed on open) -->
+    <div class="fab-actions" id="fab-actions" aria-hidden="true">
+      <a href="https://wa.me/94771234567" target="_blank" rel="noopener noreferrer"
+        class="fab-action" id="fab-wa" aria-label="Chat on WhatsApp" title="WhatsApp">
+        <span aria-hidden="true">💬</span>
+      </a>
+      <a href="#contact" class="fab-action" id="fab-book" aria-label="Book an appointment" title="Book Now">
+        <span aria-hidden="true">📅</span>
+      </a>
+      <a href="tel:+94771234567" class="fab-action" id="fab-call" aria-label="Call us" title="Call Us">
+        <span aria-hidden="true">📞</span>
+      </a>
+    </div>
+    <!-- Main FAB toggle button -->
+    <button class="fab-main" id="fab-main" aria-label="Open quick actions" aria-expanded="false">
+      <span class="fab-icon" id="fab-icon" aria-hidden="true">✦</span>
+    </button>
+  </div>
+
+  <!-- SCROLL-TO-TOP BUTTON -->
+  <button class="scroll-top-btn" id="scroll-top-btn" aria-label="Scroll to top" title="Back to top">
+    &#8679;
+  </button>
+
+  <!-- =============================================
+       FOOTER
+       ============================================= -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+
+        <!-- Brand -->
+        <div class="footer-brand">
+          <span class="logo-icon" aria-hidden="true">✦</span>
+          <span class="logo-text">Glamour Beauty</span>
+          <p>Your beauty is our passion. We craft unforgettable experiences.</p>
+        </div>
+
+        <!-- Quick Links -->
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <h4>Quick Links</h4>
+          <ul role="list">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#testimonials">Reviews</a></li>
+            <li><a href="#prices">Prices</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="components.html" style="color:var(--clr-primary-light)">🧩 Portfolio Components Showcase (Developer Demo)</a></li>
+            <li><a href="login.html" style="color:var(--clr-primary-light)">🔒 Admin Dashboard</a></li>
+          </ul>
+        </nav>
+
+        <!-- Services -->
+        <div class="footer-services">
+          <h4>Our Services</h4>
+          <ul role="list">
+            <li>Hair Styling</li>
+            <li>Nail Art</li>
+            <li>Facials</li>
+            <li>Bridal Makeup</li>
+            <li>Herbal Treatments</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Copyright -->
+      <div class="footer-bottom">
+        <p>© 2026 Glamour Beauty Parlour. All Rights Reserved.</p>
+        <p>Designed with <span aria-label="love">❤️</span> in Sri Lanka</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Main JavaScript -->
+  <script src="script.js"></script>
+</body>
+
+</html>
