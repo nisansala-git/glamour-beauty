@@ -96,6 +96,7 @@ A dedicated **`components.html`** showcase page demonstrates all 7 components in
 - **State Management (AppStore)** — Custom reactive store class connecting all data — adding a booking instantly updates the revenue metric and bar chart
 - **Simulated API Loading States** — JavaScript `Promises` simulate real server latency with loading spinners
 - **Complete CRUD** — Create, Read, Update, and Delete client records via interactive modals with "Saving..." button states and toast feedback
+- **Dark/Light Theme Toggle** — 🌙/☀️ button that instantly switches the entire dashboard between dark and light mode, saving preference to `localStorage`
 - **Notification System** — Bell icon with unread indicator, notification panel, and "Mark all read" functionality
 
 ---
@@ -168,16 +169,13 @@ Or simply open `index.html` directly in any modern browser (Chrome, Firefox, Saf
 
 ---
 
-## 📸 Screenshots
+## 🌐 Live Demo
 
-| Task 1 — Landing Page | Task 2 — Components |
-|----------------------|---------------------|
-| *(Add screenshot)*   | *(Add screenshot)*  |
-
-| Task 3 — Dashboard | Task 4 — Kanban Board |
-|--------------------|----------------------|
-| *(Add screenshot)* | *(Add screenshot)*   |
-
+| Page | Link |
+|------|------|
+| 🏠 Landing Page | [View Live](https://hilarious-zabaione-a80a25.netlify.app/index.html) |
+| 🧩 Components Showcase | [View Live](https://hilarious-zabaione-a80a25.netlify.app/components.html) |
+| 💻 Admin Dashboard | [View Live](https://hilarious-zabaione-a80a25.netlify.app/admin.html) |
 ---
 
 ## 👩‍💻 Author
