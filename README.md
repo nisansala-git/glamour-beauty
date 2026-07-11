@@ -18,7 +18,8 @@
 - [Project Structure](#-project-structure)
 - [Features](#-features)
 - [Getting Started](#-getting-started)
-- [Screenshots](#-screenshots)
+- [Author](#-author)
+- [License](#-license)
 
 ---
 
@@ -30,13 +31,13 @@ All 4 tasks were completed, exceeding the minimum requirement of 2.
 
 ---
 
-## 🔗 Live Demo
+## 🌐 Live Demo
 
 | Page | Link |
 |------|------|
-| 🏠 Landing Page (Task 1) | `index.html` |
-| 🧩 Components Showcase (Task 2) | `components.html` |
-| 💻 Admin Dashboard (Task 3 & 4) | `admin.html` |
+| 🏠 Landing Page | [View Live](https://hilarious-zabaione-a80a25.netlify.app/index.html) |
+| 🧩 Components Showcase | [View Live](https://hilarious-zabaione-a80a25.netlify.app/components.html) |
+| 💻 Admin Dashboard | [View Live](https://hilarious-zabaione-a80a25.netlify.app/admin.html) |
 
 ---
 
@@ -169,14 +170,7 @@ Or simply open `index.html` directly in any modern browser (Chrome, Firefox, Saf
 
 ---
 
-## 🌐 Live Demo
 
-| Page | Link |
-|------|------|
-| 🏠 Landing Page | [View Live](https://hilarious-zabaione-a80a25.netlify.app/index.html) |
-| 🧩 Components Showcase | [View Live](https://hilarious-zabaione-a80a25.netlify.app/components.html) |
-| 💻 Admin Dashboard | [View Live](https://hilarious-zabaione-a80a25.netlify.app/admin.html) |
----
 
 ## 👩‍💻 Author
 
